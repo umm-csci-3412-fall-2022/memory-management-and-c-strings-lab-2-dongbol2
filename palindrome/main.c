@@ -22,11 +22,15 @@ int main(int argc, char *argv[]) {
     // to somehow start with a '\n'.
     line[strcspn(line, "\n")] = '\0';
 
+    // Let char *palindromeOpt* as the output of the palindrome(line)
     palindromeOpt = palindrome(line);
 
     printf("Is the string <%s> a palindrome? %s\n", line, palindromeOpt);
-  }
 
-  free(palindromeOpt);
+    // Free the memory that *palindromeOpt* used
+    free(palindromeOpt);
+  }
+  
   free(line);
+
 }
