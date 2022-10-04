@@ -3,36 +3,17 @@
 #include "disemvowel.h"
 
 char *disemvowel(char *str) {
-	int i, j;
-	char data[100] = {0};
-
-	strcpy(data, str);
-	for(i=0, j=0; data[i]!='\0'; i++){
-		if (data[i] != 'a'){
-			data[j++] = data[i];
+	char *finStr = (char*) calloc (strlen(str) + 1, sizeof(char));
+	int i,j = 0;
+	for(i=0; str[i]; i++){
+		char checkStr[1] = {str[i]};
+		if (strpbrk(checkStr,"AEIOUaeiou")){
+		
+		}
+		else{
+			finStr[j++] = str[i];
 		}
 	}
-	for(i=0, j=0; data[i]!='\0'; i++){
-		if (data[i] != 'e'){
-			data[j++] = data[i];
-		}
-	}
-	for(i=0, j=0; data[i]!='\0'; i++){
-		if (data[i] != 'i'){
-			data[j++] = data[i];
-		}
-	}
-	for(i=0, j=0; data[i]!='\0'; i++){
-		if (data[i] != 'o'){
-			data[j++] = data[i];
-		}
-	}
-	for(i=0, j=0; data[i]!='\0'; i++){
-		if (data[i] != 'u'){
-			data[j++] = data[i];
-		}
-	}
-	data[j] = '\0';
-	char *ret = data;
-	return (ret);
+	finStr[j] = '\0';
+	return (char*) finStr;
 }
